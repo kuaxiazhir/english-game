@@ -17,13 +17,8 @@
     overflow-x: hidden;
   }
 
-  .container {
-    width: 100%;
-    max-width: 420px;
-    padding: 16px;
-  }
+  .container { width: 100%; max-width: 420px; padding: 16px; }
 
-  /* ========== 主页 ========== */
   .card {
     background: #fff;
     border-radius: 24px;
@@ -34,95 +29,41 @@
     overflow: hidden;
   }
 
-  .card::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 150px;
-    height: 150px;
-    background: rgba(102, 126, 234, 0.08);
-    border-radius: 50%;
-  }
-
-  .card::after {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    left: -40px;
-    width: 120px;
-    height: 120px;
-    background: rgba(118, 75, 162, 0.08);
-    border-radius: 50%;
+  .card.game-card {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(2px);
   }
 
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 1;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px; position: relative; z-index: 1;
   }
 
   .logo {
-    font-size: 14px;
-    font-weight: 700;
-    color: #667eea;
-    background: rgba(102, 126, 234, 0.1);
-    padding: 6px 14px;
-    border-radius: 20px;
+    font-size: 14px; font-weight: 700; color: #667eea;
+    background: rgba(102,126,234,0.1); padding: 6px 14px; border-radius: 20px;
   }
 
-  .stats {
-    display: flex;
-    gap: 16px;
-  }
+  .stats { display: flex; gap: 16px; }
+  .stat-item { text-align: center; }
+  .stat-value { font-size: 22px; font-weight: 800; color: #333; }
+  .stat-label { font-size: 11px; color: #999; margin-top: 2px; }
 
-  .stat-item {
-    text-align: center;
-  }
-
-  .stat-value {
-    font-size: 22px;
-    font-weight: 800;
-    color: #333;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: #999;
-    margin-top: 2px;
-  }
-
-  .word-area {
-    margin: 20px 0 28px;
-    position: relative;
-    z-index: 1;
-  }
+  .word-area { margin: 20px 0 24px; position: relative; z-index: 1; }
 
   .word-display {
-    font-size: 52px;
-    font-weight: 800;
-    color: #333;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    transition: all 0.3s;
+    font-size: 52px; font-weight: 800; color: #333;
+    letter-spacing: 2px; margin-bottom: 12px; transition: all 0.3s;
     font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
   }
 
-  .word-display.correct-pulse {
-    animation: correctPulse 0.6s ease;
-  }
-
-  .word-display.wrong-shake {
-    animation: wrongShake 0.5s ease;
-  }
+  .word-display.correct-pulse { animation: correctPulse 0.6s ease; }
+  .word-display.wrong-shake { animation: wrongShake 0.5s ease; }
 
   @keyframes correctPulse {
-    0% { transform: scale(1); color: #333; }
-    50% { transform: scale(1.2); color: #27ae60; }
-    100% { transform: scale(1); color: #333; }
+    0% { transform: scale(1); color:#333; }
+    50% { transform: scale(1.2); color:#27ae60; }
+    100% { transform: scale(1); color:#333; }
   }
 
   @keyframes wrongShake {
@@ -133,249 +74,57 @@
     80% { transform: translateX(6px); }
   }
 
-  .word-meaning {
-    font-size: 18px;
-    color: #888;
-    letter-spacing: 1px;
-  }
+  .word-meaning { font-size: 18px; color: #888; letter-spacing: 1px; }
 
   .word-hint {
-    display: none;
-    font-size: 13px;
-    color: #e74c3c;
-    margin-top: 12px;
-    padding: 8px 16px;
-    background: rgba(231, 76, 60, 0.08);
-    border-radius: 12px;
-    animation: fadeIn 0.3s;
+    display: none; font-size: 13px; color: #e74c3c; margin-top: 12px;
+    padding: 8px 16px; background: rgba(231,76,60,0.08); border-radius: 12px;
   }
-
   .word-hint.show { display: inline-block; }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
   .progress-bar-wrap {
-    width: 100%;
-    height: 8px;
-    background: #e8e8e8;
-    border-radius: 4px;
-    margin-bottom: 24px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+    width: 100%; height: 8px; background: #e8e8e8;
+    border-radius: 4px; margin-bottom: 16px; overflow: hidden; position: relative; z-index: 1;
   }
-
   .progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    border-radius: 4px;
-    transition: width 0.4s ease;
+    height: 100%; background: linear-gradient(90deg,#667eea,#764ba2);
+    border-radius: 4px; transition: width 0.4s ease;
   }
 
   .btn {
-    display: inline-block;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 16px;
-    border-radius: 16px;
-    padding: 14px 28px;
-    transition: all 0.25s;
-    position: relative;
-    z-index: 1;
-    font-family: inherit;
+    display: inline-block; border: none; outline: none; cursor: pointer;
+    font-weight: 700; border-radius: 16px; padding: 14px 28px;
+    transition: all 0.25s; position: relative; z-index: 1; font-family: inherit;
   }
-
   .btn:active { transform: scale(0.95); }
 
-  .btn-mic {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    font-size: 18px;
-    padding: 16px 40px;
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 auto;
+  .btn-correct {
+    background: linear-gradient(135deg,#27ae60,#2ecc71); color: #fff;
+    font-size: 18px; box-shadow: 0 6px 20px rgba(39,174,96,0.35);
   }
 
-  .btn-mic.listening {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-    animation: micPulse 1s infinite;
+  .btn-wrong {
+    background: linear-gradient(135deg,#e74c3c,#c0392b); color: #fff;
+    font-size: 18px; box-shadow: 0 6px 20px rgba(231,76,60,0.35);
   }
 
-  @keyframes micPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
-    50% { box-shadow: 0 0 0 16px rgba(231, 76, 60, 0); }
-  }
+  .btn-flex { display: flex; gap: 12px; justify-content: center; margin-top: 8px; }
 
-  .mic-icon {
-    font-size: 24px;
-  }
-
-  .btn-skip {
-    background: #f5f5f5;
-    color: #888;
-    margin-top: 12px;
-    padding: 10px 24px;
-    font-size: 14px;
-  }
-
-  .btn-restart {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    padding: 14px 36px;
-    font-size: 16px;
-    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.3);
-  }
-
-  .btn-flex {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .feedback-area {
-    margin-top: 16px;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .feedback-text {
-    font-size: 15px;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 12px;
-    animation: fadeIn 0.3s;
-  }
-
-  .feedback-text.correct {
-    background: rgba(39, 174, 96, 0.1);
-    color: #27ae60;
-  }
-
-  .feedback-text.wrong {
-    background: rgba(231, 76, 60, 0.1);
-    color: #e74c3c;
-  }
-
-  .feedback-text.info {
-    background: rgba(102, 126, 234, 0.1);
-    color: #667eea;
-  }
-
-  /* ========== 结果页 ========== */
-  .result-page { display: none; }
-
-  .result-emoji {
-    font-size: 64px;
-    margin-bottom: 12px;
-  }
-
-  .result-title {
-    font-size: 24px;
-    font-weight: 800;
-    color: #333;
-    margin-bottom: 8px;
-  }
-
-  .result-subtitle {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 24px;
-  }
-
-  .result-score {
-    font-size: 56px;
-    font-weight: 900;
-    color: #667eea;
-  }
-
-  .result-detail {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    margin: 20px 0;
-    font-size: 14px;
-    color: #666;
-  }
-
-  .result-detail span { font-weight: 700; color: #333; }
-
-  .stars {
-    font-size: 32px;
-    margin: 8px 0 20px;
-    letter-spacing: 6px;
-  }
-
-  /* ========== 模式提示 ========== */
-  .mode-note {
-    font-size: 11px;
-    color: #aaa;
-    margin-top: 10px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ========== 不支持的提示 ========== */
-  .unsupported-notice {
-    display: none;
-    background: #fff3cd;
-    color: #856404;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 13px;
-    margin-bottom: 14px;
-    text-align: center;
-  }
-
-  /* ========== 回合计数 ========== */
-  .round-info {
-    font-size: 13px;
-    color: #aaa;
-    margin-bottom: 6px;
-  }
-
-  /* ========== 倒计时 ========== */
+  /* 计时器 */
   .timer-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-bottom: 14px; position: relative; z-index: 1;
   }
 
   .timer-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 4px solid #667eea;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: 800;
-    color: #667eea;
-    transition: all 0.3s;
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 4px solid #667eea; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800; color: #667eea; transition: all 0.3s;
   }
 
   .timer-circle.urgent {
-    border-color: #e74c3c;
-    color: #e74c3c;
-    animation: timerPulse 0.5s infinite;
+    border-color: #e74c3c; color: #e74c3c; animation: timerPulse 0.5s infinite;
   }
 
   @keyframes timerPulse {
@@ -383,29 +132,37 @@
     50% { transform: scale(1.1); }
   }
 
-  /* ========== 反馈图片弹窗 ========== */
+  /* 反馈弹窗 */
   .feedback-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.2s;
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6); z-index: 1000;
+    justify-content: center; align-items: center;
   }
+  .feedback-overlay.show { display: flex; }
 
-  .feedback-overlay.show {
-    display: flex;
-  }
+  .feedback-img-wrap { position: relative; display: inline-block; }
 
   .feedback-img {
-    max-width: 80%;
-    max-height: 70%;
-    border-radius: 20px;
+    max-width: 80%; max-height: 70%; border-radius: 20px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.3);
     animation: popIn 0.35s ease;
   }
+
+  .score-on-img {
+    position: absolute;
+    top: 5%; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    padding: 14px 36px;
+    border-radius: 16px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    display: none;
+  }
+  .score-on-img.show { display: block; }
 
   @keyframes popIn {
     0% { transform: scale(0.5); opacity: 0; }
@@ -413,60 +170,88 @@
     100% { transform: scale(1); opacity: 1; }
   }
 
-  /* ========== 答题页背景 ========== */
-  .card.game-card {
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(2px);
+  .feedback-area {
+    margin-top: 12px; min-height: 36px;
+    display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;
   }
 
-  body.game-active {
-    background: url('图片5.jpg') center/cover no-repeat fixed;
+  .feedback-text {
+    font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 10px;
+  }
+  .feedback-text.correct { background: rgba(39,174,96,0.1); color: #27ae60; }
+  .feedback-text.wrong { background: rgba(231,76,60,0.1); color: #e74c3c; }
+
+  /* 结果页 */
+  .result-page {
+    display: block;
+    text-align: center;
   }
 
-  /* ========== 开始界面 & 倒计时 ========== */
-  .start-overlay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
-    position: relative;
-    z-index: 1;
-  }
-
-  .start-title {
-    font-size: 28px;
+  .result-score-text {
+    font-size: 32px;
     font-weight: 900;
-    color: #667eea;
-    margin-bottom: 8px;
+    color: #fff;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    padding: 12px 32px;
+    border-radius: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .result-score-text.show { display: inline-block; }
+
+  .result-img-area {
+    position: relative; display: inline-block;
+    margin-top: 18px; margin-bottom: 16px;
   }
 
-  .start-sub {
-    font-size: 14px;
-    color: #aaa;
-    margin-bottom: 32px;
+  .result-img {
+    max-width: 100%; max-height: 220px;
+    border-radius: 16px;
   }
+
+  .result-score { font-size: 56px; font-weight: 900; color: #667eea; }
+
+  .result-detail {
+    display: flex; justify-content: center; gap: 24px;
+    margin: 16px 0; font-size: 14px; color: #666;
+  }
+  .result-detail span { font-weight: 700; color: #333; }
+
+  .result-subtitle { font-size: 14px; color: #888; margin-bottom: 20px; }
+
+  .btn-restart {
+    background: linear-gradient(135deg,#667eea,#764ba2); color: #fff;
+    padding: 14px 36px; font-size: 16px;
+    box-shadow: 0 4px 14px rgba(102,126,234,0.3);
+  }
+
+  /* 开始页 */
+  #startScreen {
+    background-image: url('图片6.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+  }
+  .start-overlay {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; min-height: 50vh; position: relative; z-index: 1;
+  }
+
+  .start-title { font-size: 26px; font-weight: 900; color: #667eea; margin-bottom: 8px; }
+  .start-sub { font-size: 14px; color: #aaa; margin-bottom: 32px; }
 
   .btn-start {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    font-size: 22px;
-    padding: 18px 56px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 800;
-    font-family: inherit;
-    box-shadow: 0 8px 28px rgba(102, 126, 234, 0.4);
-    transition: all 0.25s;
+    background: linear-gradient(135deg,#667eea,#764ba2); color: #fff;
+    font-size: 22px; padding: 18px 56px; border: none;
+    border-radius: 20px; cursor: pointer; font-weight: 800; font-family: inherit;
+    box-shadow: 0 8px 28px rgba(102,126,234,0.4); transition: all 0.25s;
   }
-
   .btn-start:active { transform: scale(0.95); }
 
   .countdown-display {
-    font-size: 80px;
-    font-weight: 900;
-    color: #667eea;
+    font-size: 80px; font-weight: 900; color: #667eea;
     animation: countPop 0.9s ease;
   }
 
@@ -476,7 +261,7 @@
     100% { transform: scale(1); opacity: 1; }
   }
 
-  /* ========== 隐藏 ========== */
+  .round-info { font-size: 13px; color: #aaa; margin-bottom: 6px; }
   .hidden { display: none !important; }
 </style>
 </head>
@@ -500,25 +285,14 @@
     <div class="header">
       <div class="logo">三年级英语</div>
       <div class="stats">
-        <div class="stat-item">
-          <div class="stat-value" id="score">0</div>
-          <div class="stat-label">得分</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" id="streak">0</div>
-          <div class="stat-label">连对</div>
-        </div>
+        <div class="stat-item"><div class="stat-value" id="score">0</div><div class="stat-label">得分</div></div>
+        <div class="stat-item"><div class="stat-value" id="streak">0</div><div class="stat-label">连对</div></div>
       </div>
     </div>
 
     <div class="round-info">第 <span id="roundNum">1</span> / <span id="totalWords">10</span> 词</div>
-    <div class="progress-bar-wrap">
-      <div class="progress-bar" id="progressBar" style="width: 0%"></div>
-    </div>
-
-    <div class="timer-wrap">
-      <div class="timer-circle" id="timerCircle">10</div>
-    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+    <div class="timer-wrap"><div class="timer-circle" id="timerCircle">10</div></div>
 
     <div class="word-area">
       <div class="word-display" id="currentWord">hello</div>
@@ -526,26 +300,20 @@
       <div class="word-hint" id="wordHint"></div>
     </div>
 
-    <div class="unsupported-notice" id="unsupportedNotice">
-      当前浏览器不支持语音识别，已切换为手动模式：读出单词后点"我读对了"
-    </div>
-
-    <button class="btn btn-mic" id="micBtn" onclick="toggleMic()">
-      <span class="mic-icon">🎤</span> 开始朗读
-    </button>
-
-    <div class="btn-flex" style="margin-top: 12px;">
-      <button class="btn btn-skip" onclick="skipWord()">跳过 ›</button>
+    <div class="btn-flex">
+      <button class="btn btn-correct" onclick="answerCorrect()">✅ 正确</button>
+      <button class="btn btn-wrong" onclick="answerWrong()">❌ 错误</button>
     </div>
 
     <div class="feedback-area" id="feedbackArea"></div>
-    <div class="mode-note" id="modeNote">说出单词发音，系统自动评分</div>
   </div>
 
   <!-- 结果页 -->
-  <div class="card result-page" id="resultPage">
-    <div class="result-score" id="resultScore">0</div>
-    <div style="font-size:14px;color:#888;">总得分</div>
+  <div class="card result-page hidden" id="resultPage">
+    <div class="result-score-text" id="resultScoreOnImg">得分：0</div>
+    <div class="result-img-area">
+      <img class="result-img" id="resultImg" src="" alt="">
+    </div>
     <div class="result-detail">
       <div>正确 <span id="resultCorrect">0</span></div>
       <div>答错/超时 <span id="resultSkipped">0</span></div>
@@ -555,622 +323,325 @@
     <button class="btn btn-restart" onclick="restartGame()">再来一次</button>
   </div>
 
-  <!-- 反馈图片弹窗 -->
+  <!-- 反馈弹窗 -->
   <div class="feedback-overlay" id="feedbackOverlay" onclick="dismissFeedback()">
-    <img class="feedback-img" id="feedbackImg" src="" alt="">
+    <div class="feedback-img-wrap">
+      <img class="feedback-img" id="feedbackImg" src="" alt="">
+      <div class="score-on-img" id="scoreOnImg">得分：0</div>
+    </div>
   </div>
 
-  <!-- 反馈音效 -->
-  <audio id="correctAudio" preload="auto" src="correct.mp3"></audio>
-  <audio id="wrongAudio" preload="auto" src="wrong.mp3"></audio>
+  <!-- 音效 -->
+  <audio id="correctAudio" preload="auto" src="正确.mp3"></audio>
+  <audio id="wrongAudio" preload="auto" src="错误.mp3"></audio>
+  <audio id="goAudio" preload="auto" src="GO.mp3"></audio>
   <audio id="result3Audio" preload="auto" src="提示音3.mp3"></audio>
   <audio id="result4Audio" preload="auto" src="提示音4.mp3"></audio>
 </div>
 
 <script>
-// ==================== 三年级词库（人教版PEP） ====================
+// ==================== 词库（人教版 PEP 三年级上下册） ====================
 const WORD_BANK = [
-  // 三年级上册 Unit 1 - Hello!
-  { w: "hello", c: "你好" },
-  { w: "hi", c: "嗨" },
-  { w: "goodbye", c: "再见" },
-  { w: "bye", c: "拜拜" },
-  { w: "name", c: "名字" },
-  { w: "what", c: "什么" },
-  { w: "your", c: "你的" },
-  { w: "my", c: "我的" },
-  { w: "ruler", c: "尺子" },
-  { w: "pencil", c: "铅笔" },
-  { w: "eraser", c: "橡皮" },
-  { w: "crayon", c: "蜡笔" },
-  { w: "bag", c: "书包" },
-  { w: "pen", c: "钢笔" },
-  { w: "book", c: "书" },
-  { w: "no", c: "不" },
-  
-  // 三年级上册 Unit 2 - Colours
-  { w: "red", c: "红色" },
-  { w: "green", c: "绿色" },
-  { w: "yellow", c: "黄色" },
-  { w: "blue", c: "蓝色" },
-  { w: "black", c: "黑色" },
-  { w: "brown", c: "棕色" },
-  { w: "white", c: "白色" },
-  { w: "orange", c: "橙色" },
-  
-  // 三年级上册 Unit 3 - Body
-  { w: "face", c: "脸" },
-  { w: "ear", c: "耳朵" },
-  { w: "eye", c: "眼睛" },
-  { w: "nose", c: "鼻子" },
-  { w: "mouth", c: "嘴" },
-  { w: "arm", c: "胳膊" },
-  { w: "hand", c: "手" },
-  { w: "head", c: "头" },
-  { w: "body", c: "身体" },
-  { w: "leg", c: "腿" },
-  { w: "foot", c: "脚" },
-  { w: "school", c: "学校" },
-  
-  // 三年级上册 Unit 4 - Animals
-  { w: "duck", c: "鸭子" },
-  { w: "pig", c: "猪" },
-  { w: "cat", c: "猫" },
-  { w: "bear", c: "熊" },
-  { w: "dog", c: "狗" },
-  { w: "elephant", c: "大象" },
-  { w: "monkey", c: "猴子" },
-  { w: "bird", c: "鸟" },
-  { w: "tiger", c: "老虎" },
-  { w: "panda", c: "熊猫" },
-  { w: "zoo", c: "动物园" },
-  { w: "funny", c: "有趣的" },
-  
-  // 三年级上册 Unit 5 - Food
-  { w: "bread", c: "面包" },
-  { w: "juice", c: "果汁" },
-  { w: "egg", c: "鸡蛋" },
-  { w: "milk", c: "牛奶" },
-  { w: "water", c: "水" },
-  { w: "cake", c: "蛋糕" },
-  { w: "fish", c: "鱼" },
-  { w: "rice", c: "米饭" },
-  
-  // 三年级上册 Unit 6 - Numbers
-  { w: "one", c: "一" },
-  { w: "two", c: "二" },
-  { w: "three", c: "三" },
-  { w: "four", c: "四" },
-  { w: "five", c: "五" },
-  { w: "six", c: "六" },
-  { w: "seven", c: "七" },
-  { w: "eight", c: "八" },
-  { w: "nine", c: "九" },
-  { w: "ten", c: "十" },
-  
-  // 三年级下册 Unit 1 - Countries
-  { w: "UK", c: "英国" },
-  { w: "USA", c: "美国" },
-  { w: "China", c: "中国" },
-  { w: "Canada", c: "加拿大" },
-  { w: "student", c: "学生" },
-  { w: "teacher", c: "老师" },
-  { w: "boy", c: "男孩" },
-  { w: "girl", c: "女孩" },
-  { w: "new", c: "新的" },
-  { w: "friend", c: "朋友" },
-  
-  // 三年级下册 Unit 2 - Family
-  { w: "father", c: "爸爸" },
-  { w: "mother", c: "妈妈" },
-  { w: "man", c: "男人" },
-  { w: "woman", c: "女人" },
-  { w: "brother", c: "兄弟" },
-  { w: "sister", c: "姐妹" },
-  { w: "family", c: "家庭" },
-  
-  // 三年级下册 Unit 3 - Descriptions
-  { w: "thin", c: "瘦的" },
-  { w: "fat", c: "胖的" },
-  { w: "tall", c: "高的" },
-  { w: "short", c: "矮的" },
-  { w: "long", c: "长的" },
-  { w: "small", c: "小的" },
-  { w: "big", c: "大的" },
-  { w: "giraffe", c: "长颈鹿" },
-  { w: "tail", c: "尾巴" },
-  
-  // 三年级下册 Unit 4 - Position & Toys
-  { w: "on", c: "在…上面" },
-  { w: "in", c: "在…里面" },
-  { w: "under", c: "在…下面" },
-  { w: "chair", c: "椅子" },
-  { w: "desk", c: "课桌" },
-  { w: "cap", c: "帽子" },
-  { w: "ball", c: "球" },
-  { w: "car", c: "小汽车" },
-  { w: "boat", c: "小船" },
-  { w: "map", c: "地图" },
-  { w: "toy", c: "玩具" },
-  { w: "box", c: "盒子" },
-  
-  // 三年级下册 Unit 5 - Fruit
-  { w: "pear", c: "梨" },
-  { w: "apple", c: "苹果" },
-  { w: "banana", c: "香蕉" },
-  { w: "grape", c: "葡萄" },
-  { w: "fruit", c: "水果" },
-  
-  // 三年级下册 Unit 6 - Numbers 11-20
-  { w: "eleven", c: "十一" },
-  { w: "twelve", c: "十二" },
-  { w: "thirteen", c: "十三" },
-  { w: "fourteen", c: "十四" },
-  { w: "fifteen", c: "十五" },
-  { w: "sixteen", c: "十六" },
-  { w: "seventeen", c: "十七" },
-  { w: "eighteen", c: "十八" },
-  { w: "nineteen", c: "十九" },
-  { w: "twenty", c: "二十" },
-  { w: "kite", c: "风筝" },
-  { w: "beautiful", c: "美丽的" },
+  {w:"hello",c:"你好"},{w:"hi",c:"嗨"},{w:"goodbye",c:"再见"},{w:"bye",c:"拜拜"},
+  {w:"name",c:"名字"},{w:"what",c:"什么"},{w:"your",c:"你的"},{w:"my",c:"我的"},
+  {w:"ruler",c:"尺子"},{w:"pencil",c:"铅笔"},{w:"eraser",c:"橡皮"},{w:"crayon",c:"蜡笔"},
+  {w:"bag",c:"书包"},{w:"pen",c:"钢笔"},{w:"book",c:"书"},{w:"no",c:"不"},
+  {w:"red",c:"红色"},{w:"green",c:"绿色"},{w:"yellow",c:"黄色"},{w:"blue",c:"蓝色"},
+  {w:"black",c:"黑色"},{w:"brown",c:"棕色"},{w:"white",c:"白色"},{w:"orange",c:"橙色"},
+  {w:"face",c:"脸"},{w:"ear",c:"耳朵"},{w:"eye",c:"眼睛"},{w:"nose",c:"鼻子"},
+  {w:"mouth",c:"嘴"},{w:"arm",c:"胳膊"},{w:"hand",c:"手"},{w:"head",c:"头"},
+  {w:"body",c:"身体"},{w:"leg",c:"腿"},{w:"foot",c:"脚"},{w:"school",c:"学校"},
+  {w:"duck",c:"鸭子"},{w:"pig",c:"猪"},{w:"cat",c:"猫"},{w:"bear",c:"熊"},
+  {w:"dog",c:"狗"},{w:"elephant",c:"大象"},{w:"monkey",c:"猴子"},{w:"bird",c:"鸟"},
+  {w:"tiger",c:"老虎"},{w:"panda",c:"熊猫"},{w:"zoo",c:"动物园"},{w:"funny",c:"有趣的"},
+  {w:"bread",c:"面包"},{w:"juice",c:"果汁"},{w:"egg",c:"鸡蛋"},{w:"milk",c:"牛奶"},
+  {w:"water",c:"水"},{w:"cake",c:"蛋糕"},{w:"fish",c:"鱼"},{w:"rice",c:"米饭"},
+  {w:"one",c:"一"},{w:"two",c:"二"},{w:"three",c:"三"},{w:"four",c:"四"},
+  {w:"five",c:"五"},{w:"six",c:"六"},{w:"seven",c:"七"},{w:"eight",c:"八"},
+  {w:"nine",c:"九"},{w:"ten",c:"十"},
+  {w:"UK",c:"英国"},{w:"USA",c:"美国"},{w:"China",c:"中国"},{w:"Canada",c:"加拿大"},
+  {w:"student",c:"学生"},{w:"teacher",c:"老师"},{w:"boy",c:"男孩"},{w:"girl",c:"女孩"},
+  {w:"new",c:"新的"},{w:"friend",c:"朋友"},
+  {w:"father",c:"爸爸"},{w:"mother",c:"妈妈"},{w:"man",c:"男人"},{w:"woman",c:"女人"},
+  {w:"brother",c:"兄弟"},{w:"sister",c:"姐妹"},{w:"family",c:"家庭"},
+  {w:"thin",c:"瘦的"},{w:"fat",c:"胖的"},{w:"tall",c:"高的"},{w:"short",c:"矮的"},
+  {w:"long",c:"长的"},{w:"small",c:"小的"},{w:"big",c:"大的"},{w:"giraffe",c:"长颈鹿"},
+  {w:"tail",c:"尾巴"},
+  {w:"on",c:"在…上面"},{w:"in",c:"在…里面"},{w:"under",c:"在…下面"},
+  {w:"chair",c:"椅子"},{w:"desk",c:"课桌"},{w:"cap",c:"帽子"},{w:"ball",c:"球"},
+  {w:"car",c:"小汽车"},{w:"boat",c:"小船"},{w:"map",c:"地图"},{w:"toy",c:"玩具"},
+  {w:"box",c:"盒子"},
+  {w:"pear",c:"梨"},{w:"apple",c:"苹果"},{w:"banana",c:"香蕉"},{w:"grape",c:"葡萄"},
+  {w:"fruit",c:"水果"},
+  {w:"eleven",c:"十一"},{w:"twelve",c:"十二"},{w:"thirteen",c:"十三"},
+  {w:"fourteen",c:"十四"},{w:"fifteen",c:"十五"},{w:"sixteen",c:"十六"},
+  {w:"seventeen",c:"十七"},{w:"eighteen",c:"十八"},{w:"nineteen",c:"十九"},
+  {w:"twenty",c:"二十"},{w:"kite",c:"风筝"},{w:"beautiful",c:"美丽的"}
 ];
 
 // ==================== 游戏状态 ====================
 const WORDS_PER_ROUND = 10;
 const TIMER_SECONDS = 10;
-let words = [];
-let currentIndex = 0;
-let score = 0;
-let streak = 0;
-let bestStreak = 0;
-let correctCount = 0;
-let wrongCount = 0;
-let isListening = false;
-let recognition = null;
-let speechSupported = false;
-let manualMode = false;
-let timerInterval = null;
-let timeLeft = TIMER_SECONDS;
+let words=[], currentIndex=0, score=0, streak=0, bestStreak=0;
+let correctCount=0, wrongCount=0;
+let timerInterval=null, timeLeft=TIMER_SECONDS;
+let feedbackTimer=null;
 
-// ==================== 初始化 ====================
-function initRecognition() {
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SpeechRecognition) {
-    speechSupported = false;
-    enableManualMode();
-    return;
+// ==================== 音频解锁 ====================
+function unlockAudio() {
+  var as = document.querySelectorAll('audio');
+  for (var i=0; i<as.length; i++) {
+    as[i].pause();
+    as[i].currentTime = 0;
   }
-
-  speechSupported = true;
-  recognition = new SpeechRecognition();
-  recognition.lang = 'en-US';
-  recognition.interimResults = false;
-  recognition.maxAlternatives = 3;
-  recognition.continuous = false;
-
-  recognition.onresult = function(event) {
-    const results = event.results[0];
-    const alternatives = [];
-    for (let i = 0; i < results.length; i++) {
-      alternatives.push(results[i].transcript.trim().toLowerCase());
-    }
-    checkAnswer(alternatives);
-  };
-
-  recognition.onerror = function(event) {
-    isListening = false;
-    updateMicButton();
-    if (event.error === 'not-allowed') {
-      showFeedback('请允许麦克风权限后再试 🙏', 'info');
-    } else if (event.error === 'no-speech') {
-      showFeedback('没有听到声音，请再试一次 🔊', 'info');
-    } else {
-      showFeedback('识别出错，请重试', 'info');
-    }
-  };
-
-  recognition.onend = function() {
-    isListening = false;
-    updateMicButton();
-  };
 }
 
-function enableManualMode() {
-  manualMode = true;
-  document.getElementById('unsupportedNotice').style.display = 'block';
-  document.getElementById('modeNote').textContent = '手动模式：读出单词后点"我读对了"';
+function playAudioSafely(el) {
+  if (!el) return;
+  el.currentTime = 0; el.load();
+  var p = el.play();
+  if (p && p.catch) p.catch(function(){});
 }
 
 // ==================== 游戏流程 ====================
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+function shuffle(a) { var b=[...a]; for (var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; }
 
 function startGame() {
-  words = shuffle(WORD_BANK).slice(0, WORDS_PER_ROUND);
-  currentIndex = 0;
-  score = 0;
-  streak = 0;
-  bestStreak = 0;
-  correctCount = 0;
-  wrongCount = 0;
-  isListening = false;
+  words = shuffle(WORD_BANK).slice(0,WORDS_PER_ROUND);
+  currentIndex=score=streak=bestStreak=correctCount=wrongCount=0;
   clearTimer();
-  
-  updateScore();
-  updateStreak();
-  showWord();
-  updateProgress();
-  
+  updateScore(); updateStreak(); showWord(); updateProgress();
+  playAudioSafely(document.getElementById('goAudio'));
   document.getElementById('startScreen').classList.add('hidden');
   document.getElementById('gamePage').classList.remove('hidden');
   document.getElementById('resultPage').classList.add('hidden');
-  document.getElementById('feedbackArea').innerHTML = '';
+  document.getElementById('resultPage').style.display='none';
+  document.getElementById('feedbackArea').innerHTML='';
   document.getElementById('wordHint').classList.remove('show');
-  document.body.classList.add('game-active');
+  document.body.style.backgroundImage="url('"+encodeURI('图片5.jpg')+"')";
+  document.body.style.backgroundSize='cover';
+  document.body.style.backgroundPosition='center';
+  document.body.style.backgroundRepeat='no-repeat';
+  document.body.style.backgroundAttachment='scroll';
 }
 
 function showWord() {
-  if (currentIndex >= words.length) {
-    showResult();
-    return;
-  }
+  if (currentIndex>=words.length) { showResult(); return; }
   clearTimer();
-  const word = words[currentIndex];
-  document.getElementById('currentWord').textContent = word.w;
-  document.getElementById('currentWord').classList.remove('correct-pulse', 'wrong-shake');
-  document.getElementById('wordMeaning').textContent = word.c;
+  var w=words[currentIndex];
+  document.getElementById('currentWord').textContent=w.w;
+  document.getElementById('currentWord').classList.remove('correct-pulse','wrong-shake');
+  document.getElementById('wordMeaning').textContent=w.c;
   document.getElementById('wordHint').classList.remove('show');
-  document.getElementById('feedbackArea').innerHTML = '';
-  document.getElementById('roundNum').textContent = currentIndex + 1;
-  document.getElementById('totalWords').textContent = WORDS_PER_ROUND;
+  document.getElementById('feedbackArea').innerHTML='';
+  document.getElementById('roundNum').textContent=currentIndex+1;
+  document.getElementById('totalWords').textContent=WORDS_PER_ROUND;
   updateProgress();
   startTimer();
 }
 
 // ==================== 计时器 ====================
 function startTimer() {
-  timeLeft = TIMER_SECONDS;
-  updateTimerDisplay();
-  timerInterval = setInterval(function() {
-    timeLeft--;
-    updateTimerDisplay();
-    if (timeLeft <= 0) {
-      clearTimer();
-      onTimeout();
-    }
-  }, 1000);
+  timeLeft=TIMER_SECONDS; updateTimerDisplay();
+  timerInterval=setInterval(function(){
+    timeLeft--; updateTimerDisplay();
+    if (timeLeft<=0) { clearTimer(); onTimeout(); }
+  },1000);
 }
 
 function clearTimer() {
-  if (timerInterval) {
-    clearInterval(timerInterval);
-    timerInterval = null;
-  }
-  timeLeft = TIMER_SECONDS;
-  var circle = document.getElementById('timerCircle');
-  circle.classList.remove('urgent');
-  circle.textContent = TIMER_SECONDS;
+  if (timerInterval) { clearInterval(timerInterval); timerInterval=null; }
+  timeLeft=TIMER_SECONDS;
+  var c=document.getElementById('timerCircle');
+  c.classList.remove('urgent'); c.textContent=TIMER_SECONDS;
 }
 
 function updateTimerDisplay() {
-  var circle = document.getElementById('timerCircle');
-  circle.textContent = timeLeft;
-  if (timeLeft <= 3) {
-    circle.classList.add('urgent');
-  } else {
-    circle.classList.remove('urgent');
-  }
+  var c=document.getElementById('timerCircle');
+  c.textContent=timeLeft;
+  if (timeLeft<=3) c.classList.add('urgent'); else c.classList.remove('urgent');
 }
 
 function onTimeout() {
-  // 超时 = 答错
-  if (isListening) {
-    recognition.stop();
-    isListening = false;
-    updateMicButton();
-  }
-  showFeedbackImg('wrong');
-  showFeedback('⏰ 时间到！', 'wrong');
-  document.getElementById('wordHint').textContent = '正确读音: ' + words[currentIndex].w;
+  showFeedbackImg('wrong'); showFeedback('⏰ 时间到！','wrong');
+  document.getElementById('wordHint').textContent='正确读音: '+words[currentIndex].w;
   document.getElementById('wordHint').classList.add('show');
-  streak = 0;
-  wrongCount++;
-  updateStreak();
-  setTimeout(nextWord, 1800);
+  streak=0; wrongCount++; updateStreak();
+  setTimeout(nextWord,1800);
 }
 
 function updateProgress() {
-  const pct = (currentIndex / WORDS_PER_ROUND) * 100;
-  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressBar').style.width=(currentIndex/WORDS_PER_ROUND*100)+'%';
 }
 
-function toggleMic() {
-  if (manualMode) {
-    // 手动模式：当作读对了
-    handleManualCorrect();
-    return;
-  }
-
-  if (!speechSupported) {
-    enableManualMode();
-    handleManualCorrect();
-    return;
-  }
-
-  if (isListening) {
-    recognition.stop();
-    isListening = false;
-    updateMicButton();
-  } else {
-    try {
-      recognition.start();
-      isListening = true;
-      updateMicButton();
-      showFeedback('正在听你说… 🎧', 'info');
-    } catch (e) {
-      isListening = false;
-      updateMicButton();
-      showFeedback('启动失败，请重试', 'info');
-    }
-  }
-}
-
-function updateMicButton() {
-  const btn = document.getElementById('micBtn');
-  if (manualMode) {
-    btn.innerHTML = '<span class="mic-icon">✅</span> 我读对了';
-    btn.className = 'btn btn-mic';
-    btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
-    btn.style.boxShadow = '0 6px 20px rgba(39, 174, 96, 0.4)';
-    return;
-  }
-  if (isListening) {
-    btn.innerHTML = '<span class="mic-icon">🔴</span> 正在听…';
-    btn.className = 'btn btn-mic listening';
-  } else {
-    btn.innerHTML = '<span class="mic-icon">🎤</span> 开始朗读';
-    btn.className = 'btn btn-mic';
-  }
-}
-
-function handleManualCorrect() {
+// ==================== 手动答题按钮 ====================
+function answerCorrect() {
   clearTimer();
   showFeedbackImg('correct');
   document.getElementById('currentWord').classList.add('correct-pulse');
   markCorrect();
 }
 
-function checkAnswer(alternatives) {
+function answerWrong() {
   clearTimer();
-  const target = words[currentIndex].w.toLowerCase();
-  const wordDisplay = document.getElementById('currentWord');
-  
-  // 检查是否匹配（支持相近发音的模糊匹配）
-  let matched = false;
-  for (const alt of alternatives) {
-    if (alt === target || alt.replace(/\s+/g, '') === target) {
-      matched = true;
-      break;
-    }
-  }
-
-  if (matched) {
-    showFeedbackImg('correct');
-    wordDisplay.classList.add('correct-pulse');
-    markCorrect();
-  } else {
-    showFeedbackImg('wrong');
-    const heard = alternatives[0] || '（未识别）';
-    showFeedback('❌ 再试试！听到的是: ' + heard, 'wrong');
-    wordDisplay.classList.add('wrong-shake');
-    document.getElementById('wordHint').textContent = '正确读音: ' + target;
-    document.getElementById('wordHint').classList.add('show');
-    streak = 0;
-    wrongCount++;
-    updateStreak();
-  }
-}
-
-// ==================== 反馈图片 & 音效 ====================
-function showFeedbackImg(type) {
-  const overlay = document.getElementById('feedbackOverlay');
-  const img = document.getElementById('feedbackImg');
-  const correctAudio = document.getElementById('correctAudio');
-  const wrongAudio = document.getElementById('wrongAudio');
-
-  if (type === 'correct') {
-    img.src = 'correct.jpg';
-    correctAudio.currentTime = 0;
-    correctAudio.play().catch(function() {});
-  } else {
-    img.src = 'wrong.jpg';
-    wrongAudio.currentTime = 0;
-    wrongAudio.play().catch(function() {});
-  }
-
-  overlay.classList.add('show');
-  
-  // 1.5秒后自动关闭
-  setTimeout(function() {
-    overlay.classList.remove('show');
-  }, 1500);
-}
-
-function dismissFeedback() {
-  document.getElementById('feedbackOverlay').classList.remove('show');
+  showFeedbackImg('wrong');
+  document.getElementById('wordHint').textContent='正确读音: '+words[currentIndex].w;
+  document.getElementById('wordHint').classList.add('show');
+  document.getElementById('currentWord').classList.add('wrong-shake');
+  streak=0; wrongCount++; updateStreak();
+  setTimeout(nextWord,1800);
 }
 
 function markCorrect() {
-  score += 10;
-  streak += 1;
-  correctCount += 1;
-  if (streak > bestStreak) bestStreak = streak;
-  
-  updateScore();
-  updateStreak();
-  
-  setTimeout(nextWord, 800);
+  score+=10; streak+=1; correctCount+=1;
+  if (streak>bestStreak) bestStreak=streak;
+  updateScore(); updateStreak();
+  setTimeout(nextWord,800);
 }
 
-function skipWord() {
-  // 跳过按钮：等同于答错
-  clearTimer();
-  if (isListening) {
-    recognition.stop();
-    isListening = false;
-    updateMicButton();
+function nextWord() { currentIndex++; showWord(); }
+
+function showFeedback(msg,type) {
+  document.getElementById('feedbackArea').innerHTML='<span class="feedback-text '+type+'">'+msg+'</span>';
+}
+
+function updateScore() { document.getElementById('score').textContent=score; }
+function updateStreak() { document.getElementById('streak').textContent=streak; }
+
+// ==================== 反馈弹窗 ====================
+function showFeedbackImg(type) {
+  if (feedbackTimer) { clearTimeout(feedbackTimer); feedbackTimer=null; }
+  var overlay=document.getElementById('feedbackOverlay');
+  var img=document.getElementById('feedbackImg');
+  var scoreEl=document.getElementById('scoreOnImg');
+  scoreEl.classList.remove('show'); // 普通反馈不显示分数
+
+  if (type==='correct') {
+    img.src='正确.jpg'; playAudioSafely(document.getElementById('correctAudio'));
+  } else {
+    img.src='错误.jpg'; playAudioSafely(document.getElementById('wrongAudio'));
   }
-  wrongCount++;
-  streak = 0;
-  updateStreak();
-  showFeedbackImg('wrong');
-  document.getElementById('wordHint').textContent = '正确读音: ' + words[currentIndex].w;
-  document.getElementById('wordHint').classList.add('show');
-  setTimeout(nextWord, 1800);
+  overlay.classList.add('show');
+  feedbackTimer=setTimeout(function(){ overlay.classList.remove('show'); feedbackTimer=null; },1500);
 }
 
-function nextWord() {
-  currentIndex++;
-  showWord();
-}
-
-function showFeedback(msg, type) {
-  const area = document.getElementById('feedbackArea');
-  area.innerHTML = '<span class="feedback-text ' + type + '">' + msg + '</span>';
-}
-
-function updateScore() {
-  document.getElementById('score').textContent = score;
-}
-
-function updateStreak() {
-  document.getElementById('streak').textContent = streak;
+function dismissFeedback() {
+  if (feedbackTimer) { clearTimeout(feedbackTimer); feedbackTimer=null; }
+  document.getElementById('feedbackOverlay').classList.remove('show');
 }
 
 // ==================== 结果页 ====================
 function showResult() {
   clearTimer();
-  document.body.classList.remove('game-active');
-  document.getElementById('gamePage').classList.add('hidden');
-  document.getElementById('startScreen').classList.add('hidden');
-  document.getElementById('resultPage').classList.remove('hidden');
-  
-  document.getElementById('resultScore').textContent = score;
-  document.getElementById('resultCorrect').textContent = correctCount;
-  document.getElementById('resultSkipped').textContent = wrongCount;
-  document.getElementById('resultBestStreak').textContent = bestStreak;
-  
-  // 总分判定：>=50 显示图片3+提示音3，<50 显示图片4+提示音4
-  setTimeout(function() {
-    var overlay = document.getElementById('feedbackOverlay');
-    var img = document.getElementById('feedbackImg');
-    var audio3 = document.getElementById('result3Audio');
-    var audio4 = document.getElementById('result4Audio');
-    
-    if (score >= 50) {
-      img.src = '图片3.jpg';
-      audio3.currentTime = 0;
-      audio3.play().catch(function() {});
-      document.getElementById('resultMsg').textContent = '恭喜你，表现很棒！';
+  document.body.style.backgroundImage='';
+
+  // 关弹窗
+  if (feedbackTimer) { clearTimeout(feedbackTimer); feedbackTimer=null; }
+  var fbOverlay = document.getElementById('feedbackOverlay');
+  if (fbOverlay) fbOverlay.classList.remove('show');
+
+  // 隐藏游戏各页
+  var gp = document.getElementById('gamePage');
+  if (gp) gp.classList.add('hidden');
+  var ss = document.getElementById('startScreen');
+  if (ss) ss.classList.add('hidden');
+
+  // 显示结算页 —— classList + style 双保险
+  var rp = document.getElementById('resultPage');
+  if (rp) {
+    rp.classList.remove('hidden');
+    rp.style.display = 'block';
+  }
+
+  // 填充数据
+  var rc = document.getElementById('resultCorrect');
+  if (rc) rc.textContent = correctCount;
+  var rs = document.getElementById('resultSkipped');
+  if (rs) rs.textContent = wrongCount;
+  var rb = document.getElementById('resultBestStreak');
+  if (rb) rb.textContent = bestStreak;
+
+  var img = document.getElementById('resultImg');
+  var scoreEl = document.getElementById('resultScoreOnImg');
+  var msgEl = document.getElementById('resultMsg');
+
+  if (score >= 60) {
+    if (img) img.src = '图片3.jpg';
+    playAudioSafely(document.getElementById('result3Audio'));
+    if (msgEl) msgEl.textContent = '恭喜你，表现很棒！';
+    if (scoreEl) scoreEl.textContent = '本次游戏得分 ' + score;
+  } else {
+    if (img) img.src = '图片4.jpg';
+    playAudioSafely(document.getElementById('result4Audio'));
+    if (msgEl) msgEl.textContent = '继续加油，你可以更好！';
+    if (scoreEl) scoreEl.textContent = '本次游戏得分 ' + score;
+  }
+  if (scoreEl) scoreEl.classList.add('show');
+}
+
+// ==================== 开始/重新开始 ====================
+function startCountdown() {
+  unlockAudio();
+  document.getElementById('startContent').classList.add('hidden');
+  document.getElementById('countdownScreen').classList.remove('hidden');
+
+  var count=3, cd=document.getElementById('countdownNum');
+  cd.textContent=count; cd.style.animation='none'; void cd.offsetWidth; cd.style.animation='countPop 0.9s ease';
+
+  var iv=setInterval(function(){
+    count--;
+    if (count<=0) {
+      clearInterval(iv);
+      cd.textContent='GO!'; cd.style.color='#27ae60';
+      setTimeout(function(){
+        cd.style.color='#667eea';
+        document.getElementById('startScreen').classList.add('hidden');
+        document.getElementById('countdownScreen').classList.add('hidden');
+        document.getElementById('startContent').classList.remove('hidden');
+        startGame();
+      },400);
     } else {
-      img.src = '图片4.jpg';
-      audio4.currentTime = 0;
-      audio4.play().catch(function() {});
-      document.getElementById('resultMsg').textContent = '继续加油，你可以更好！';
+      cd.textContent=count; cd.style.animation='none'; void cd.offsetWidth; cd.style.animation='countPop 0.9s ease';
     }
-    overlay.classList.add('show');
-    
-    // 5秒后自动关闭
-    setTimeout(function() {
-      overlay.classList.remove('show');
-    }, 5000);
-  }, 600);
+  },1000);
 }
 
 function restartGame() {
-  // 显示结果页倒计时，3秒后开始下一局
+  document.body.style.backgroundImage='';
   document.getElementById('resultPage').classList.add('hidden');
+  document.getElementById('resultPage').style.display='none';
   document.getElementById('startScreen').classList.remove('hidden');
   document.getElementById('startContent').classList.add('hidden');
   document.getElementById('countdownScreen').classList.remove('hidden');
   document.getElementById('feedbackOverlay').classList.remove('show');
-  
-  var count = 3;
-  var cd = document.getElementById('countdownNum');
-  cd.textContent = count;
-  cd.style.animation = 'none';
-  void cd.offsetWidth;
-  cd.style.animation = 'countPop 0.9s ease';
-  
-  var interval = setInterval(function() {
-    count--;
-    if (count <= 0) {
-      clearInterval(interval);
-      cd.textContent = 'GO!';
-      cd.style.color = '#27ae60';
-      setTimeout(function() {
-        cd.style.color = '#667eea';
-        document.getElementById('startScreen').classList.add('hidden');
-        document.getElementById('countdownScreen').classList.add('hidden');
-        document.getElementById('startContent').classList.remove('hidden');
-        startGame();
-      }, 400);
-    } else {
-      cd.textContent = count;
-      cd.style.animation = 'none';
-      void cd.offsetWidth;
-      cd.style.animation = 'countPop 0.9s ease';
-    }
-  }, 1000);
-}
+  document.getElementById('resultScoreOnImg').classList.remove('show');
 
-// ==================== 开始倒计时 ====================
-function startCountdown() {
-  document.getElementById('startContent').classList.add('hidden');
-  document.getElementById('countdownScreen').classList.remove('hidden');
-  
-  var count = 3;
-  var cd = document.getElementById('countdownNum');
-  cd.textContent = count;
-  cd.style.animation = 'none';
-  void cd.offsetWidth;
-  cd.style.animation = 'countPop 0.9s ease';
-  
-  var interval = setInterval(function() {
+  var count=3, cd=document.getElementById('countdownNum');
+  cd.textContent=count; cd.style.animation='none'; void cd.offsetWidth; cd.style.animation='countPop 0.9s ease';
+
+  var iv=setInterval(function(){
     count--;
-    if (count <= 0) {
-      clearInterval(interval);
-      cd.textContent = 'GO!';
-      cd.style.color = '#27ae60';
-      setTimeout(function() {
-        cd.style.color = '#667eea';
+    if (count<=0) {
+      clearInterval(iv);
+      cd.textContent='GO!'; cd.style.color='#27ae60';
+      setTimeout(function(){
+        cd.style.color='#667eea';
         document.getElementById('startScreen').classList.add('hidden');
         document.getElementById('countdownScreen').classList.add('hidden');
         document.getElementById('startContent').classList.remove('hidden');
         startGame();
-      }, 400);
+      },400);
     } else {
-      cd.textContent = count;
-      cd.style.animation = 'none';
-      void cd.offsetWidth;
-      cd.style.animation = 'countPop 0.9s ease';
+      cd.textContent=count; cd.style.animation='none'; void cd.offsetWidth; cd.style.animation='countPop 0.9s ease';
     }
-  }, 1000);
+  },1000);
 }
 
 // ==================== 启动 ====================
-initRecognition();
-// 显示开始界面，不自动开始
 document.getElementById('startScreen').classList.remove('hidden');
 document.getElementById('gamePage').classList.add('hidden');
-document.getElementById('resultPage').classList.add('hidden');
+var rpInit = document.getElementById('resultPage');
+if (rpInit) { rpInit.classList.add('hidden'); rpInit.style.display = 'none'; }
 </script>
 </body>
 </html>
